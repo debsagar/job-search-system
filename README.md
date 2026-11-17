@@ -1,10 +1,59 @@
 # Job Search System
 
-An agent-operated job-search workflow with a local evidence ledger. It connects role research, project selection, resume preparation, browser applications, founder outreach and outcome tracking.
+Use Claude Code or Codex to help you find jobs, tailor your resume and keep track of applications. This repo gives your agent a place to save what it finds, check your facts and remember what happened between sessions.
 
-The interesting part is recovery: if the browser times out after Submit, the system records uncertainty and blocks another attempt until the first is reconciled. A filled form is never counted as an application.
+## Start here
 
-This repository contains the reusable code and fictional examples. It contains no candidate profile, resume, employer contacts, application history or private research. It was extracted into fresh Git history from a personal workflow.
+Open **Claude Code or Codex on your computer**, in a folder where you keep projects. Give it this prompt:
+
+```text
+Set up https://github.com/debsagar/job-search-system for my job search.
+Clone it into a new folder, or use this checkout if we're already in it.
+Read README.md, docs/WORKFLOW.md and job-search/examples/contracts.json.
+
+Check the prerequisites in "Manual setup" below, create a local .venv,
+install requirements.txt and run job-search/init.py. Do not overwrite
+existing private files. Keep the optional paid mapper disabled.
+
+Ask me for my resume, target roles, location/work eligibility and work
+preferences. Review the experience and projects I provide with me.
+Replace the fictional examples in the private profile and dossier with
+confirmed facts only. Keep uncertain claims out of application material.
+Save my targeting preferences in private/job-search/preferences.md.
+Keep all my personal material under private/ and out of Git commits.
+
+Run job-search/manage.py check and job-search/manage.py report
+using the virtual environment's Python.
+Tell me whether setup passed and what information you still need.
+Do not submit applications, send messages or publish anything.
+```
+
+The agent handles the setup commands and asks you for your background. You don't need to edit JSON yourself. Use a session that can read files and run terminal commands; research also needs web access. If it cannot browse, give it the JD text or links it can open. Browser applications need browser tools or your help.
+
+### Then just ask
+
+**Find roles:**
+
+> Read my saved profile, preferences and campaign history. Find up to five roles that fit me. Open the actual employer JDs, check location eligibility and explain the fit and gaps. Save the leads without duplicates. Do not apply or contact anyone.
+
+**Tailor a resume:**
+
+> Tailor my resume to this JD: [paste the link or text]. Choose the most relevant evidence from my whole project dossier. Don't invent claims. Save a separate one-page version and show me what changed. Do not submit it.
+
+**Pick up tomorrow:**
+
+> Read my private records and tell me where we left off, what needs my attention and the next useful step. Keep drafts separate from applications actually submitted.
+
+Your records stay in the local `private/` folder, which Git ignores. Your chosen agent still processes whatever you share with it. Nothing runs automatically in the background, and this repo does not include a Claude or Codex subscription.
+
+<details>
+<summary>How it works</summary>
+
+The agent researches roles and prepares material. The Python tools check and record its work. If a browser times out after Submit, the system holds the application for review instead of blindly retrying. A filled form is never counted as an application.
+
+This repository contains reusable code and fictional examples, with no real candidate profile, resume, employer contacts or application history. For the technical details, continue below.
+
+</details>
 
 ## Architecture
 
@@ -39,7 +88,7 @@ flowchart TD
 
 The Python CLI performs bookkeeping and validation. An agent session or a person must research sources, write material, inspect the browser and perform external actions. There is no bundled browser driver, model harness, email sender or scheduler. The original workflow uses T3; another agent can supply the same JSON contracts.
 
-## Run locally
+## Manual setup
 
 Linux or macOS, Python 3.10+, and Poppler's `pdfinfo` are required. Core commands use the Python standard library. Workbook export additionally uses `openpyxl`.
 
