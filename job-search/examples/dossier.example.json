@@ -1,0 +1,10 @@
+{
+  "projects": [
+    {
+      "id": "example-project",
+      "selection_status": "needs_contribution_or_scope_review",
+      "summary": "Replace with a project you actually built",
+      "evidence": []
+    }
+  ]
+}

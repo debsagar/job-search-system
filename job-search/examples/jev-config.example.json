@@ -1,0 +1,6 @@
+{
+  "enabled": false,
+  "budget_inr": 0,
+  "reservation_per_call_inr": 5,
+  "authorization": "Disabled by default; explicit owner budget required."
+}

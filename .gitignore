@@ -1,0 +1,9 @@
+private/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.pdf
+*.xlsx
+*.csv

@@ -1,0 +1,80 @@
+{
+  "job": {
+    "company": "Example Labs",
+    "role": "AI Engineer",
+    "url": "https://example.com/jobs/1",
+    "channel": "direct",
+    "jd_text": "Paste the opened job description here.",
+    "source_evidence": [
+      "URL or saved JD path"
+    ],
+    "fit": "Explain responsibilities and matching reviewed projects.",
+    "eligibility": {
+      "location": {
+        "pass": true,
+        "evidence": "Exact employer evidence for your permitted work location"
+      },
+      "required_qualifications": {
+        "pass": true,
+        "evidence": "Evidence for actual mandatory requirements"
+      },
+      "open_role": {
+        "pass": true,
+        "evidence": "Dated open role observation"
+      }
+    }
+  },
+  "preparation": {
+    "project_ids": [
+      "REPLACE_WITH_USABLE_DOSSIER_ID"
+    ],
+    "resume_path": "/absolute/path/to/reviewed.pdf",
+    "resume_variant": "agents-v1",
+    "visual_review_evidence": "Rendered PDF inspection reference",
+    "claim_review_evidence": "Dossier sources supporting every selected claim",
+    "answers": [
+      {
+        "field": "full_name",
+        "value": "Example Candidate",
+        "required": true,
+        "source": "profile.name"
+      }
+    ]
+  },
+  "readback": {
+    "job_url": "https://example.com/jobs/1",
+    "observed_at": "REPLACE_WITH_CURRENT_ISO_TIMESTAMP_WITH_TIMEZONE",
+    "page_complete": true,
+    "snapshot_ref": "Actual T3 snapshot reference",
+    "values": {
+      "full_name": "Value actually observed on page"
+    },
+    "blockers": [],
+    "missing_required": [],
+    "attached_resume_sha256": "Actual uploaded artifact SHA256",
+    "attachment_evidence": "Browser evidence that the intended document is attached"
+  },
+  "receipt": {
+    "state": "submitted",
+    "evidence": [
+      "Employer confirmation snapshot"
+    ],
+    "confirmation": "Actual confirmation text",
+    "minutes": 3
+  },
+  "site_lesson": {
+    "type": "site",
+    "url": "https://example.com/jobs/1",
+    "control": "phone:international",
+    "method": "type_then_blur",
+    "worked": true,
+    "evidence": "Actual observation reference"
+  },
+  "answer_memory": {
+    "type": "answer",
+    "question": "Exact generic question",
+    "value": "Source-backed answer",
+    "source": "Profile field or user confirmation",
+    "reusable": true
+  }
+}
