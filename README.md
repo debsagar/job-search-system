@@ -9,29 +9,30 @@ This repository contains the reusable code and fictional examples. It contains n
 ## Architecture
 
 ```mermaid
+%%{init: {"flowchart": {"htmlLabels": false, "padding": 20}}}%%
 flowchart TD
-    Public[Public employer boards and hiring sources] --> Research[Agent research session]
-    Research --> Sources[Opened sources and limitations]
-    Research --> Packet[JD snapshot and eligibility evidence]
-    Profile[Private profile and reviewed project dossier] --> Prepare[Resume and sourced answers]
+    Public["Employer boards<br/>and hiring sources"] --> Research[Agent research session]
+    Research --> Sources["Opened sources<br/>and limitations"]
+    Research --> Packet["JD snapshot<br/>and eligibility"]
+    Profile["Private profile<br/>and reviewed dossier"] --> Prepare["Resume and<br/>sourced answers"]
     Packet --> Prepare
-    Prepare --> Browser[Agent or human operates browser]
-    Browser --> Readback[Capture actual fields and attachment]
-    Readback --> Verify[CLI checks values, hashes and freshness]
-    Verify --> Intent[Record submission intent]
+    Prepare --> Browser["Agent or human<br/>operates browser"]
+    Browser --> Readback["Capture fields<br/>and attachment"]
+    Readback --> Verify["CLI checks values,<br/>hashes and freshness"]
+    Verify --> Intent["Record submission<br/>intent"]
     Intent --> Click[Browser Submit action]
     Click --> Receipt{Observed result}
     Receipt -->|Confirmation| Submitted[Confirmed submission]
-    Receipt -->|Timeout or ambiguity| Hold[Hold retries pending reconciliation]
-    Receipt -->|Confirmed not submitted| Retry[Prepare a fresh verified attempt]
-    Sources --> Ledger[Private evidence and event ledger]
+    Receipt -->|Timeout or ambiguity| Hold["Hold retries<br/>until reconciled"]
+    Receipt -->|Confirmed not submitted| Retry["Prepare a fresh<br/>verified attempt"]
+    Sources --> Ledger["Private evidence<br/>and event ledger"]
     Submitted --> Ledger
     Hold --> Ledger
-    Ledger --> Report[Outcome report and local workbook]
-    Report --> Review[Review strategy with an observation window]
+    Ledger --> Report["Outcome report<br/>and local workbook"]
+    Report --> Review["Review strategy<br/>after observation window"]
     Review --> Research
     Prepare --> Draft[Outreach draft]
-    Draft --> Approval[Owner approves exact recipient and message]
+    Draft --> Approval["Owner approves exact<br/>recipient and message"]
     Approval --> Send[External messaging tool]
     Send --> Ledger
 ```
